@@ -11,4 +11,12 @@
         Content:    <input type="text" id="content" name="content" required><br>
         <input type="submit" id="post" value="Post"> 
     </form>
+    {% for post in posts %}
+     <hr>
+     <h2>{{post.Blog_title}}</h2>
+     <h3>Author: {{post.Author}}</h3>
+     <p>Content: {{post.Content}}</p>
+     <a href="/home/delete/{{post.id}}">delete</a>
+     <a href="/home/edit/{{post.id}}">edit</a>
+    {% endfor %}
 {% endblock %}
