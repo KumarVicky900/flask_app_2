@@ -5,10 +5,16 @@
 {% endblock %}
 
 {% block body %}
-    <form action='/home/edit/{{e_post.id}}' method='POST'>
-        Blog_Title: <input type='text' id='e_title' name='e_title' value='{{e_post.Blog_title}}' required><br>
-        Author:     <input type='text' id='e_author'  name='e_author' value='{{e_post.Author}}' required><br>
-        Content:    <input type='text' id='e_content' name='e_content' value='{{e_post.Content}}' required><br>
-        <input type="submit"  value="Save"> 
+
+    <form action="/home/edit/{{e_post.id}}" method="POST">
+        Blog_Title: 
+        <input class="form-control" type="text" id="e_title" name="e_title" value='{{e_post.Blog_title}}' required><br>
+
+        Author:    
+        <input class="form-control" type="text" id="e_author" name="e_author" value='{{e_post.Author}}' required><br>
+        Content:   
+        <input class="form-control" type="text" id="e_content" name="e_content"  value='{{e_post.Content}}' required rows='3'><br>
+         
+        <input class="btn btn-success" type="submit" id="post" value="Post"> 
     </form>
 {% endblock %}

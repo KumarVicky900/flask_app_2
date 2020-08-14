@@ -4,19 +4,27 @@
 <title>Blog</title>
 {% endblock %}
 
-{% block body %}
+{% block body %}<br><br>
+    <h1>Blog Post</h1>
+    <hr><br><br><br>
     <form action="/home" method="POST">
-        Blog_Title: <input type="text" id="title" name="title" required><br>
-        Author:     <input type="text" id="author" name="author" required><br>
-        Content:    <input type="text" id="content" name="content" required><br>
-        <input type="submit" id="post" value="Post"> 
+        Blog_Title: 
+        <input class="form-control" type="text" id="title" name="title" placeholder="Enter Blog Title" aria-label="Enter Blog Title" required><br>
+
+        Author:    
+        <input class="form-control" type="text" id="author" name="author" placeholder="Enter Author name" aria-label="Enter Author name" required><br>
+        Content:   
+        <input class="form-control" type="text" id="content" name="content" placeholder="Enter your content here" aria-label="Enter your content here" required rows='3'><br>
+         
+        <input class="btn btn-success" type="submit" id="post" value="Post"> 
     </form>
-    {% for post in posts %}
+    {% for post in posts %}<br>
      <hr>
-     <h2>{{post.Blog_title}}</h2>
-     <h3>Author: {{post.Author}}</h3>
+     <h2>Blog_Title: {{post.Blog_title}}</h2>
+     <h5>Written by {{post.Author}} on {{post.date_posted}}</h5><br>
      <p>Content: {{post.Content}}</p>
-     <a href="/home/delete/{{post.id}}">delete</a>
-     <a href="/home/edit/{{post.id}}">edit</a>
+     <a class="btn btn-danger" href="/home/delete/{{post.id}}">delete</a>
+     <a class="btn btn-primary" href="/home/edit/{{post.id}}">edit</a>
     {% endfor %}
+    <hr>
 {% endblock %}

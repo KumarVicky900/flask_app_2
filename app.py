@@ -18,7 +18,7 @@ class blog(db.Model):
 
 @app.route('/')
 def default():
-    return "<h1>search /home to do blogging<h1>"
+    return "<h1>This is Home Page<h1>"
 
 
 @app.route('/home', methods=['GET','POST'])
