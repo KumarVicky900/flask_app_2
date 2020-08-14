@@ -42,6 +42,18 @@ def delete(id):
      db.session.commit()
      return redirect('/home')
 
+@app.route('/home/edit/<int:id>',methods=['GET','POST'])
+def edit(id):
+    post=blog.query.get_or_404(id)
+    if request.method == 'POST':
+        post.Blog_title=request.form['e_title']
+        post.Author=request.form['e_author']
+        post.Content=request.form['e_content']
+        db.session.commit()
+        return redirect('/home')
+    else:
+        return render_template('edit.html',e_post=post)
+
 
 if __name__=="__main__":
     app.run(debug=True)
